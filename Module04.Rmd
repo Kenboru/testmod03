@@ -7,22 +7,35 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Challenge 1
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+v1 <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+v2 <- gsub("[[:punct:]]", "", v1)
+v3 <- strsplit(v2, " ")
+## v3[seq(from = 1, to = 15, by = 3)]
+v4 <- matrix(data = v2, nrow = 5, ncol = 5, byrow = FALSE)
+v4[seq( by = 3)]
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## I am not sure why I cannot sequence v3, nor do I understand why the matrix function is not working here either. Is it a matter of the variable type?
 
-```{r cars}
-summary(cars)
-```
+## Challenge 2
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m
+x <- m[, 2]
+x
+x <- m[, 3]
+x
+x <- m[, 6]
+x
+x <- m[6, ]
+x
+x <- m[8, ]
+x
 
-## Including Plots
+## Challenge 3
 
-You can also embed plots, for example:
+a <- array(data = 400:1, dim = c(5, 5, 4, 4))
+a[1, 1, 1, 2]
+a[2, 3, 2, ]
+a[1:5, 1:5, 3, 3]
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
