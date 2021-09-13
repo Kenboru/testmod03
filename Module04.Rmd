@@ -1,41 +1,54 @@
 ---
 title: "Module04.Rmd"
 output: html_document
+author: Kenboru
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Challenge 1
-
 v1 <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 v2 <- gsub("[[:punct:]]", "", v1)
 v3 <- strsplit(v2, " ")
-## v3[seq(from = 1, to = 15, by = 3)]
-v4 <- matrix(data = v2, nrow = 5, ncol = 5, byrow = FALSE)
-v4[seq( by = 3)]
-
-## I am not sure why I cannot sequence v3, nor do I understand why the matrix function is not working here either. Is it a matter of the variable type?
+v4 <- c(v3[[1]])
+v5 <- v4[seq(from = 1, to = 22, by = 3)]
+v5
+## I am not sure if this method of extracting every third element is what is being asked of us, but it looks clean and I do not believe it is 'brute forcing' the problem.
 
 ## Challenge 2
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
 m
-x <- m[, 2]
+x <- c(m[, 2], m[, 3], m[, 6])
 x
-x <- m[, 3]
+x <- m[6:8, ]
 x
-x <- m[, 6]
-x
-x <- m[6, ]
-x
-x <- m[8, ]
+x <- m[2, 2]:m[6, 9]
 x
 
 ## Challenge 3
-
 a <- array(data = 400:1, dim = c(5, 5, 4, 4))
 a[1, 1, 1, 2]
 a[2, 3, 2, ]
 a[1:5, 1:5, 3, 3]
 
+## Challenge 4
+Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+Lorisoidea <- c("Lorisidae", "Galagidae")
+
+Strepsirhini <- list(Lorisoidea, Lemuroidea)
+names(Strepsirhini) <- list("Lorisoidea", "Lemuroidea")
+
+Tarsioidea <- c("Tarsiidae")
+
+Catarrhini <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+Platyrrhini <- c("Cebidae", "Atelidae", "Pitheciidae")
+
+Anthropoidea <- list(Platyrrhini, Catarrhini)
+names(Anthropoidea) <- list("Platyrrhini", "Catarrhini")
+
+Haplorhini <- list(Anthropoidea, Tarsioidea)
+names(Haplorhini) <- list("Anthropoidea", "Tarsioidea")
+
+Primates <- list(Haplorhini, Strepsirhini)
+names(Primates) <- list("Haplorhini", "Strepsirhini")
+Primates
+
+## Challenge 5
