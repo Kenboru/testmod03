@@ -52,3 +52,11 @@ names(Primates) <- list("Haplorhini", "Strepsirhini")
 Primates
 
 ## Challenge 5
+z <- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2)
+m2 <- matrix(data = z, nrow = 5, ncol = 3, byrow = TRUE)
+df1 <- as.data.frame(m2)
+df1
+coerce1 <- as.logical(df1[, 2])
+coerce2 <- as.factor(df1[, 3])
+str(df1)
+## To be honest, I am not sure what I should be expecting from the str() function here, so I am hoping that this is correct. I still don't quite grasp data frames...
